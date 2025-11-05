@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A6</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(27, 27, 27);
+        min-height: 100vh;
+      }
+      button {
+        border: none;
+        outline: none;
+        background-color: blue;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 0.2rem;
+        position: relative;
+      }
+      .tooltip {
+        position: absolute;
+        background-color: black;
+        display: block;
+        padding: 0.5rem 0.5rem;
+        top: calc(100% + 10px);
+        left: 10px;
+        transition: opacity 100ms ease;
+        width: max-content;
+        opacity: 0;
+        max-width: max-content;
+        min-width: 0;
+      }
+      .tooltip::after {
+        content: "";
+        width: 10px;
+        height: 10px;
+        rotate: 45deg;
+        background-color: black;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(-50%);
+      }
+      button:hover .t1 {
+        opacity: 1;
+      }
+      /* .t1:hover .t2 {
+        opacity: 1;
+      } */
+      .t2 {
+        left: calc(100% + 10px);
+        top: 0;
+      }
+      .t2::after {
+        transform: translateX(-50%);
+        top: 50%;
+      }
+      .tooltip:hover > .tooltip {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button>
+        Hover
+        <span class="tooltip t1"
+          >First Toolip
+
+          <span class="tooltip t2"
+            >Second tooltip <span class="tooltip t3">Third tooltip</span></span
+          >
+        </span>
+      </button>
+    </div>
+  </body>
+</html>

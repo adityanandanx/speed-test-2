@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A1</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+      .container {
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+      }
+      .drop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 4px;
+        animation: drip 600ms linear infinite forwards;
+        --offset: 50px;
+      }
+      .drop:nth-child(1),
+      .drop:nth-child(21) {
+        animation-delay: 700ms;
+      }
+      .drop:nth-child(2),
+      .drop:nth-child(20) {
+        animation-delay: 900ms;
+      }
+      .drop:nth-child(3),
+      .drop:nth-child(13) {
+        animation-delay: 1150ms;
+      }
+      .drop:nth-child(4),
+      .drop:nth-child(12) {
+        animation-delay: 1000ms;
+      }
+      .drop:nth-child(5) {
+        animation-delay: 1500ms;
+      }
+      .drop:nth-child(6),
+      .drop:nth-child(14) {
+        animation-delay: 0ms;
+      }
+      .drop:nth-child(7),
+      .drop:nth-child(15) {
+        animation-delay: 50ms;
+      }
+      .drop:nth-child(8),
+      .drop:nth-child(10) {
+        animation-delay: 500ms;
+      }
+      .drop:nth-child(9),
+      .drop:nth-child(11) {
+        animation-delay: 100ms;
+      }
+      .drop::after {
+        content: "";
+        background-color: black;
+        position: absolute;
+        bottom: 100%;
+        width: 100%;
+        height: var(--h);
+      }
+      @keyframes drip {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(110%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="drop" style="left: 10%; --h: 100px"></div>
+      <div class="drop" style="left: 20%; --h: 10px"></div>
+      <div class="drop" style="left: 30%; --h: 140px"></div>
+      <div class="drop" style="left: 40%; --h: 120px"></div>
+      <div class="drop" style="left: 50%; --h: 90px"></div>
+      <div class="drop" style="left: 34%; --h: 200px"></div>
+      <div class="drop" style="left: 22%; --h: 110px"></div>
+      <div class="drop" style="left: 68%; --h: 80px"></div>
+      <div class="drop" style="left: 80%; --h: 50px"></div>
+      <div class="drop" style="left: 40%; --h: 10px"></div>
+      <div class="drop" style="left: 97%; --h: 100px"></div>
+      <div class="drop" style="left: 5%"></div>
+
+      <div class="drop" style="left: 15%"></div>
+      <div class="drop" style="left: 25%"></div>
+      <div class="drop" style="left: 35%"></div>
+      <div class="drop" style="left: 45%"></div>
+      <div class="drop" style="left: 55%"></div>
+      <div class="drop" style="left: 35%"></div>
+      <div class="drop" style="left: 25%"></div>
+      <div class="drop" style="left: 65%"></div>
+      <div class="drop" style="left: 85%"></div>
+      <div class="drop" style="left: 45%"></div>
+      <div class="drop" style="left: 95%"></div>
+      <div class="drop" style="left: 55%"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A3</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .container {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-family: monospace;
+        font-size: 1.1rem;
+      }
+      .bord {
+        border: 1px solid black;
+        padding: 0.5rem;
+        width: 200px;
+        margin-bottom: 10px;
+        height: 6rem;
+        position: relative;
+      }
+      .bord::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 2px;
+        background-color: red;
+        animation: scan 1s linear infinite forwards alternate-reverse;
+      }
+      @keyframes scan {
+        from {
+          transform: translateY(0rem);
+        }
+        to {
+          transform: translateY(6rem);
+        }
+      }
+      .code {
+        height: 100%;
+        width: 100%;
+        background-image: linear-gradient(
+          to right,
+          white 0px,
+          white 1px,
+
+          black 1px,
+          black 4px,
+
+          white 4px,
+          white 10px,
+
+          black 10px,
+          black 15px,
+
+          white 15px,
+          white 16px,
+
+          black 16px,
+          black 20px,
+
+          white 20px,
+          white 21px,
+
+          black 21px,
+          black 23px,
+
+          white 23px,
+          white 25px,
+
+          black 25px,
+          black 28px,
+
+          white 28px,
+          white 30px,
+
+          black 30px,
+          black 31px,
+
+          white 31px,
+          white 35px,
+
+          black 35px,
+          black 38px,
+
+          white 38px,
+          white 39px,
+
+          black 39px,
+          black 40px,
+
+          white 40px,
+          white 48px,
+
+          black 48px,
+          black 50px
+        );
+        background-repeat: repeat-x;
+        background-size: 50px 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="barcode">
+        <div class="bord">
+          <div class="code"></div>
+        </div>
+        <div class="text">162956944404</div>
+      </div>
+    </div>
+  </body>
+</html>

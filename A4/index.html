@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A4</title>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background-color: black;
+      }
+      .container {
+        position: relative;
+        display: flex;
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
+        perspective: 800px;
+        transform-style: preserve-3d;
+      }
+      .ring {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        border: 2px solid white;
+        border-radius: 100%;
+        opacity: 0;
+        animation: zoom 3s calc(var(--i) * 200ms) linear infinite forwards;
+      }
+      @keyframes zoom {
+        0% {
+          transform: translateZ(-350px);
+          opacity: 0;
+        }
+        80% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateZ(700px);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="ring" style="--i: 1"></div>
+      <div class="ring" style="--i: 2"></div>
+      <div class="ring" style="--i: 3"></div>
+      <div class="ring" style="--i: 4"></div>
+      <div class="ring" style="--i: 5"></div>
+    </div>
+  </body>
+</html>

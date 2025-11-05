@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A8</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        margin: 0;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+      }
+      .flag {
+        width: 20rem;
+        height: 16rem;
+        background-color: blue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .center {
+        background-color: white;
+        width: 8rem;
+        height: 8rem;
+        border-radius: 100vw;
+        border: 7px blue solid;
+        z-index: 2;
+      }
+      .ray {
+        width: 13rem;
+        height: 4rem;
+        background-color: white;
+        position: absolute;
+        clip-path: polygon(0% 50%, 50% 0%, 100% 50%, 50% 100%);
+        rotate: calc(var(--i) * 30deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="flag">
+        <div class="center"></div>
+        <div class="ray" style="--i: 1"></div>
+        <div class="ray" style="--i: 2"></div>
+        <div class="ray" style="--i: 3"></div>
+        <div class="ray" style="--i: 4"></div>
+        <div class="ray" style="--i: 5"></div>
+        <div class="ray" style="--i: 6"></div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A7</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-color: black;
+      }
+      .circle {
+        --r: calc(var(--i) * 6px);
+        animation: boop 3s calc(var(--i) * 100ms) ease infinite forwards;
+      }
+      @keyframes boop {
+        0% {
+          r: var(--r);
+          stroke-width: 0.1;
+        }
+        25% {
+          r: calc(var(--r) + 5px);
+          stroke-width: 2;
+        }
+        60% {
+          r: var(--r);
+        }
+        100% {
+          r: var(--r);
+          stroke-width: 0.1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <svg width="800" height="800" viewBox="0 0 100 100">
+        <defs>
+          <linearGradient id="Gradient1" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="blue" />
+            <stop offset="100%" stop-color="purple" />
+          </linearGradient>
+        </defs>
+        <circle
+          cx="50"
+          cy="50"
+          stroke="url(#Gradient1)"
+          class="circle"
+          style="--i: 1"
+          fill="none"
+        />
+        <circle
+          cx="50"
+          cy="50"
+          stroke="url(#Gradient1)"
+          class="circle"
+          style="--i: 2"
+          fill="none"
+        />
+        <circle
+          cx="50"
+          cy="50"
+          stroke="url(#Gradient1)"
+          class="circle"
+          style="--i: 3"
+          fill="none"
+        />
+        <circle
+          cx="50"
+          cy="50"
+          stroke="url(#Gradient1)"
+          class="circle"
+          style="--i: 4"
+          fill="none"
+        />
+        <circle
+          cx="50"
+          cy="50"
+          stroke="url(#Gradient1)"
+          class="circle"
+          style="--i: 5"
+          fill="none"
+        />
+      </svg>
+    </div>
+  </body>
+</html>

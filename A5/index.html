@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A5</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: sans-serif;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-color: rgb(228, 228, 228);
+      }
+      .card {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        border-radius: 1rem;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.397);
+        padding: 2rem;
+        max-width: 400px;
+        width: 100%;
+      }
+      input {
+        border: 1px solid rgba(0, 0, 0, 0.479);
+        border-radius: 0.25rem;
+        padding: 0.6rem;
+        outline: none;
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1>Personal Information</h1>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" />
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" />
+      </div>
+    </div>
+  </body>
+</html>
