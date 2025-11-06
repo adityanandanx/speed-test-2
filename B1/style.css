@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: sans-serif;
+}
+.container {
+    max-width: 720px;
+    margin: auto;
+    padding: 2rem 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+.card {
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.26);
+    border-radius: 0.75rem;
+}
+
+.quote {
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+.quote::before {
+    content: "\"";
+}
+.quote::after {
+    content: "\"";
+}
+.author {
+    display: block;
+    text-align: right;
+    font-weight: bold;
+}
+.author::before {
+    content: '- ';
+}
+
+.intersector {
+    height: 20rem;
+}
+
+.quotes {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

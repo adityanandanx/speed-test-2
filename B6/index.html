@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B6</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <video src="./video.mp4" nocontrols muted></video>
+      <div id="video-controls" class="controls" data-state="">
+        <button id="play-pause" type="button" data-state="play">
+          Play/Pause
+        </button>
+        <div class="progress">
+          <progress id="progress" value="0">
+            <span id="progress-bar"></span>
+          </progress>
+          <div class="embedVideoContainer"></div>
+          <video src="./video.mp4" id="embedVideo" nocontrols paused>12</video>
+        </div>
+        <span id="duration"></span>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+body {
+    background-color: rgb(10, 10, 10);
+    color: white;
+    font-family: sans-serif;
+}
+
+.box {
+    user-select: none;
+    position: absolute;
+    padding: 1rem;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+    font-weight: bold;
+    transform-origin: center;
+    transition: scale 700ms ease;
+}
+.box:nth-child(1) {
+    background-color: rgb(255, 98, 98);
+    left: 50px; 
+    top: 50px;
+}
+.box:nth-child(2) {
+    background-color: rgb(255, 98, 242);
+    left: 500px; 
+    top: 400px;
+}
+.box:nth-child(3) {
+    background-color: rgb(98, 237, 255);
+    left: 200px; 
+    top: 500px;
+}
+.box:nth-child(4) {
+    background-color: rgb(98, 255, 124);
+    left: 250px; 
+    top: 300px;
+}
+.box:nth-child(5) {
+    background-color: rgb(255, 169, 98);
+    left: 600px; 
+    top: 100px;
+}
+.box:hover {
+    scale: 1.05;
+}

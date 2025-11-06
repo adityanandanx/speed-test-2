@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+}
+
+.box {
+    padding: 1rem;
+    width: 256px;
+    height: 128px;
+    background-color: rgb(57, 215, 255);
+    margin-bottom: 1rem;
+}
+
+button {
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    border: none;
+    outline: none;
+    background-color: green;
+    color: white;
+}
+
+.hovered {
+    outline: 1px solid red;
+}
+
+.tooltip {
+    background-color: rgba(0, 0, 0, 0.781);
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.151);
+    padding: 1rem;
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    color: white;
+    font-family: monospace;
+    opacity: 1;
+    transition: all 100ms ease;
+}
+
+.hidden {
+    /* display: none; */
+    opacity: 0;
+}
+
+.prop {
+    color: rgb(43, 220, 226);
+}

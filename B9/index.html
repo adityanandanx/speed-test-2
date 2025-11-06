@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B9</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        background-color: whitesmoke;
+      }
+      input {
+        padding: 0.5rem 0.5rem;
+        font-size: 1.5rem;
+        outline: none;
+        border-radius: 0.5rem;
+        /* width: 512px; */
+        border: 2px solid rgb(180, 180, 180);
+        padding-right: 80px;
+      }
+      input:focus {
+        border: 2px solid rgb(0, 195, 255);
+      }
+      .cont {
+        position: relative;
+      }
+      button {
+        background-color: rgb(0, 195, 255);
+        border: none;
+        outline: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        color: white;
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+      }
+      #pass {
+      }
+      #mask {
+        position: absolute;
+        left: 0;
+        top: 100%;
+        background-color: rgba(255, 0, 0, 0.281);
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cont">
+      <input type="text" id="pass" placeholder="Enter Password" />
+      <input type="text" id="mask" placeholder="Enter Password" />
+      <button>Show</button>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

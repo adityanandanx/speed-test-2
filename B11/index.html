@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B11</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        overflow: hidden;
+      }
+      .container {
+        min-height: 100vh;
+        margin: 0;
+        background-color: rgb(24, 24, 24);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: white;
+        font-family: sans-serif;
+        position: relative;
+      }
+      h1 {
+        font-size: 5rem;
+        font-weight: 300;
+      }
+      .ring {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 80px;
+        height: 100px;
+        transform: translate(-50%, -50%);
+        transform-origin: top left;
+        /* animation: rotate 10s linear infinite forwards; */
+      }
+      @keyframes rotate {
+        to {
+          rotate: 360deg;
+        }
+      }
+
+      img {
+        width: 80px;
+        height: 100px;
+        object-fit: cover;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translateY(-300px);
+        rotate: calc(var(--i) * 30deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>RING</h1>
+      <p>Just drag and scroll~</p>
+      <div class="ring">
+        <img
+          style="--i: 1"
+          src="./assets/pexels-albinberlin-919073.jpg"
+          alt="img1"
+        />
+        <img
+          style="--i: 2"
+          src="./assets/pexels-alexgtacar-745150-1592384.jpg"
+          alt="img"
+        />
+        <img
+          style="--i: 3"
+          src="./assets/pexels-cesarperez209-733745.jpg"
+          alt="img"
+        />
+        <img
+          style="--i: 4"
+          src="./assets/pexels-darshan394-1173777.jpg"
+          alt="img"
+        />
+        <img
+          style="--i: 5"
+          src="./assets/pexels-deeonederer-2793170.jpg"
+          alt="img"
+        />
+        <img
+          style="--i: 6"
+          src="./assets/pexels-eberhardgross-1612462.jpg"
+          alt="img"
+        />
+        <img
+          style="--i: 7"
+          src="./assets/pexels-etha-34545-128234.jpg"
+          alt="img"
+        />
+        <img
+          style="--i: 8"
+          src="./assets/pexels-gvbrielh-3593922.jpg"
+          alt="img"
+        />
+        <img
+          style="--i: 9"
+          src="./assets/pexels-lynxexotics-3802510.jpg"
+          alt="img"
+        />
+        <img
+          style="--i: 10"
+          src="./assets/pexels-mayday-1545743.jpg"
+          alt="img"
+        />
+        <img
+          style="--i: 11"
+          src="./assets/pexels-mikebirdy-244206.jpg"
+          alt="img"
+        />
+        <img
+          style="--i: 12"
+          src="./assets/pexels-misael-garcia-832776-1707820.jpg"
+          alt="img"
+        />
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
