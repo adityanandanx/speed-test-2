@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B12</title>
+    <style>
+      .palette {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .palette > * {
+        width: 32px;
+        height: 32px;
+        background-color: var(--color);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="palette">
+      <div class="swatch" style="--color: black"></div>
+      <div class="swatch" style="--color: red"></div>
+      <div class="swatch" style="--color: yellow"></div>
+      <div class="swatch" style="--color: green"></div>
+      <div class="swatch" style="--color: blue"></div>
+    </div>
+    <canvas></canvas>
+
+    <script>
+      const canvas = document.querySelector("canvas");
+      canvas.width = 512;
+      canvas.height = 512;
+      const swatches = document.querySelectorAll(".swatch");
+      const c = canvas.getContext("2d");
+      swatches.forEach((s) => {
+        s.addEventListener("click", (e) => {
+          c.strokeStyle = s.style.getPropertyValue("--color");
+        });
+      });
+      let down = false;
+      canvas.addEventListener("mousedown", (e) => {
+        down = true;
+        const r = canvas.getBoundingClientRect();
+        mx = e.clientX - r.left;
+        my = e.clientY - r.top;
+        c.moveTo(mx, my);
+      });
+      canvas.addEventListener("mouseup", (e) => {
+        down = false;
+      });
+
+      let mx = 0;
+      let my = 0;
+      canvas.addEventListener("mousemove", (e) => {
+        if (down) {
+          const r = canvas.getBoundingClientRect();
+          let x = e.clientX - r.left;
+          let y = e.clientY - r.top;
+
+          c.beginPath();
+          c.moveTo(mx, my);
+          c.lineTo(x, y);
+          //   c.closePath();
+          c.stroke();
+
+          mx = x;
+          my = y;
+        }
+      });
+
+      const draw = () => {
+        c.beginPath();
+      };
+    </script>
+  </body>
+</html>
