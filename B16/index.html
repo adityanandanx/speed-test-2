@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B16</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+      .container {
+        padding: 2rem;
+        min-height: 100vh;
+      }
+      button {
+        background-color: transparent;
+        --color: blueviolet;
+        border: 2px solid var(--color);
+        padding: 1rem 2rem;
+        border-radius: 0.5rem;
+        outline: none;
+        transition: background-color 100ms ease, color 100ms ease,
+          scale 100ms ease, transform 100ms ease, box-shadow 100ms ease;
+        cursor: pointer;
+        box-shadow: 0 10px 20px var(--color);
+      }
+      button:hover {
+        background-color: var(--color);
+        color: white;
+        transform: translateY(-4%);
+      }
+      button:active {
+        transform: translateY(4%);
+        box-shadow: 0 2px 5px var(--color);
+      }
+      .counters {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 2rem 0;
+        gap: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button class="add">Add a counter</button>
+      <div class="counters">
+        <!-- <div class="counter">
+          <span class="count">5</span>
+          <div class="controls">
+            <button class="dec">Decrease</button>
+            <button class="inc">Increase</button>
+          </div>
+        </div> -->
+        <my-counter></my-counter>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
