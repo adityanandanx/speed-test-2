@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B13</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        flex-direction: column;
+        padding: 2rem;
+      }
+
+      /*  */
+
+      .title {
+        font-size: 20px;
+        font-weight: bold;
+        text-anchor: middle;
+        fill: #333;
+      }
+      .axis-label {
+        font-size: 12px;
+        fill: #777;
+      }
+      .x-label {
+        text-anchor: middle;
+      }
+      .y-label {
+        text-anchor: end;
+      }
+      .grid-line {
+        stroke: #eee;
+        stroke-dasharray: 2 2;
+      }
+      .data-line {
+        fill: none;
+        stroke: #00b8d4;
+        stroke-width: 2.5;
+      }
+      .data-area {
+        fill: #00b8d4;
+        fill-opacity: 0.15;
+      }
+      .data-point {
+        fill: #00b8d4;
+        stroke: #fff;
+        stroke-width: 2;
+      }
+      .legend-text {
+        font-size: 14px;
+        fill: #555;
+      }
+      .tooltip-box {
+        fill: #222;
+        fill-opacity: 0.8;
+      }
+      .tooltip-text {
+        font-size: 14px;
+        fill: #fff;
+        text-anchor: middle;
+      }
+      .tooltip-text-bold {
+        font-size: 14px;
+        font-weight: bold;
+        fill: #fff;
+        text-anchor: middle;
+      }
+
+      svg {
+        filter: blur(5px);
+        transition: filter 100ms ease;
+      }
+      svg:hover {
+        filter: blur(0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="chart-container">
+        <svg
+          width="800"
+          height="500"
+          viewBox="0 0 800 500"
+          xmlns="http://www.w3.org/2000/svg"
+          font-family="Arial, sans-serif"
+        >
+          <defs></defs>
+
+          <text x="400" y="30" class="title">Website Visits Over the Week</text>
+
+          <rect
+            x="340"
+            y="50"
+            width="12"
+            height="12"
+            rx="2"
+            stroke="#00b8d4"
+            fill="#00b8d4"
+            fill-opacity="0.15"
+          ></rect>
+          <text x="360" y="60" class="legend-text">Website Visits</text>
+
+          <g transform="translate(60, 80)">
+            <g class="axis-label y-label">
+              <text x="-10" y="355">0</text>
+              <text x="-10" y="285">500</text>
+              <text x="-10" y="215">1,000</text>
+              <text x="-10" y="145">1,500</text>
+              <text x="-10" y="75">2,000</text>
+              <text x="-10" y="5">2,500</text>
+            </g>
+            <g class="grid-line">
+              <line x1="0" y1="350" x2="680" y2="350"></line>
+              <line x1="0" y1="280" x2="680" y2="280"></line>
+              <line x1="0" y1="210" x2="680" y2="210"></line>
+              <line x1="0" y1="140" x2="680" y2="140"></line>
+              <line x1="0" y1="70" x2="680" y2="70"></line>
+              <line x1="0" y1="0" x2="680" y2="0"></line>
+            </g>
+
+            <g class="axis-label x-label">
+              <text x="20" y="370">Monday</text>
+              <text x="120" y="370">Tuesday</text>
+              <text x="220" y="370">Wednesday</text>
+              <text x="320" y="370">Thursday</text>
+              <text x="420" y="370">Friday</text>
+              <text x="520" y="370">Saturday</text>
+              <text x="620" y="370">Sunday</text>
+            </g>
+
+            <path
+              class="data-area"
+              d="
+      M 20,210
+      C 70,210 70,140 120,140
+      S 170,70 220,70
+      C 270,70 270,112 320,112
+      S 370,98 420,98
+      C 470,98 470,42 520,42
+      S 570,0 620,0
+      L 620,350
+      L 20,350
+      Z
+    "
+            ></path>
+
+            <path
+              class="data-line"
+              d="
+      M 20,210
+      C 70,210 70,140 120,140
+      S 170,70 220,70
+      C 270,70 270,112 320,112
+      S 370,98 420,98
+      C 470,98 470,42 520,42
+      S 570,0 620,0
+    "
+            ></path>
+
+            <g class="data-point">
+              <circle cx="20" cy="210" r="4"></circle>
+              <circle cx="120" cy="140" r="4"></circle>
+              <circle cx="220" cy="70" r="4"></circle>
+              <circle cx="320" cy="112" r="4"></circle>
+              <circle cx="420" cy="98" r="4"></circle>
+              <circle cx="520" cy="42" r="4"></circle>
+              <circle cx="620" cy="0" r="4"></circle>
+            </g>
+
+            <g transform="translate(440, 0)">
+              <rect
+                x="0"
+                y="0"
+                width="160"
+                height="50"
+                rx="5"
+                class="tooltip-box"
+              ></rect>
+              <polygon points="75,50 85,50 80,60" class="tooltip-box"></polygon>
+              <text x="80" y="20" class="tooltip-text-bold">Saturday</text>
+              <text x="80" y="40" class="tooltip-text">
+                Website Visits: 2,200
+              </text>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </body>
+</html>

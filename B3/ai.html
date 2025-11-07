@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Tunnel (Canvas)</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        background-color: #000;
+      }
+      canvas {
+        display: block;
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="tunnel-canvas"></canvas>
+
+    <script>
+      const canvas = document.getElementById("tunnel-canvas");
+      const ctx = canvas.getContext("2d");
+
+      // Set canvas to full window size
+      let width = (canvas.width = window.innerWidth);
+      let height = (canvas.height = window.innerHeight);
+
+      // --- CONFIGURATION ---
+      const numRings = 70;
+      const ringSpacing = 15;
+      const baseRadius = 50; // Initial ring radius in pixels
+      const radiusIncrement = 20; // How much radius grows per ring
+
+      // 3D "Camera" settings
+      const perspective = 800;
+
+      // This will hold the 3D data for each ring
+      const rings = [];
+
+      // 1. CREATE THE RINGS
+      function init() {
+        for (let i = 0; i < numRings; i++) {
+          rings.push({
+            baseZ: -i * ringSpacing, // Base Z position (into the screen)
+            baseRadius: baseRadius + i * radiusIncrement,
+          });
+        }
+      }
+
+      // 2. ANIMATE AND DRAW
+      function animate() {
+        // Get the current time for smooth animation
+        const time = Date.now() * 0.0005;
+
+        // Clear the canvas for the new frame
+        ctx.clearRect(0, 0, width, height);
+
+        // Set the drawing style for the rings
+        ctx.strokeStyle = "rgba(255, 255, 255, 0.7)";
+        ctx.lineWidth = 3;
+        ctx.shadowColor = "rgba(255, 255, 255, 0.5)";
+        ctx.shadowBlur = 10;
+
+        // Move the canvas origin to the center
+        ctx.save();
+        ctx.translate(width / 2, height / 2);
+
+        // We draw rings from back-to-front
+        for (let i = rings.length - 1; i >= 0; i--) {
+          const ring = rings[i];
+
+          // --- 3D Slinky / Snake Math ---
+          // This offset makes the wave travel down the slinky
+          const waveOffset = i * 0.15;
+          const snakeTime = time * 0.8;
+
+          // 1. Calculate the 3D position (x, y, z)
+          const x = Math.sin(snakeTime + waveOffset) * 150;
+          const y = Math.cos(snakeTime + waveOffset) * 150;
+          const z = ring.baseZ + Math.sin(snakeTime * 0.5 + waveOffset) * 100;
+
+          // 2. Project 3D to 2D
+          // This formula fakes 3D perspective
+          const scale = perspective / (perspective - z);
+
+          const screenX = x * scale;
+          const screenY = y * scale;
+          const screenRadius = ring.baseRadius * scale;
+
+          // 3. Draw the ring
+          ctx.beginPath(); // Start a new path
+
+          // We are already centered, so (screenX, screenY) is the center.
+          // We use 'screenRadius' for the circle.
+          ctx.arc(screenX, screenY, screenRadius, 0, 2 * Math.PI);
+
+          ctx.stroke(); // Draw the path
+        }
+
+        ctx.restore(); // Restore the canvas state (un-center)
+
+        // Loop the animation
+        requestAnimationFrame(animate);
+      }
+
+      // 3. START
+      // Handle window resizing
+      window.onresize = () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      };
+
+      init();
+      animate();
+    </script>
+  </body>
+</html>
