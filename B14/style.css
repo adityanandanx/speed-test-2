@@ -1,0 +1,65 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    max-width: 720px;
+    position: relative;
+    font-family: sans-serif;
+}
+.container {
+    position: relative;
+    width: 100%;
+    --progress: 50%;
+    user-select: none;
+}
+
+.container::after {
+    position: absolute;
+    content: "";
+    width: 4rem;
+    background-image: url(./assets/splitter.svg);
+    height: 100%;
+    z-index: 30;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-size: contain;
+    transform: translateX(-50%);
+    left: var(--progress);
+}
+
+.compare {
+    width: 100%;
+    height: auto;
+}
+
+.before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    clip-path: xywh(0% 0% var(--progress) 100%);
+}
+
+.slider {
+    position: absolute;
+    z-index: -1;
+}
+
+body::before, body::after {
+    position: absolute;
+    z-index: 20;
+    width: fit-content;
+    background-color: rgba(0, 0, 0, 0.226);
+    color: white;
+    padding: 1rem;
+}
+
+body::before {
+    left: 0;
+    content: 'Before';
+}
+body::after {
+    right: 0;
+    content: 'After';
+}
