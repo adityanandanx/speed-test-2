@@ -1,0 +1,5 @@
+a ~ 905460
+s ~ 107429
+https://aur.archlinux.org/ ~ 371831
+google.com ~ 141237
+https://google.com/ ~ 843679
