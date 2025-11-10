@@ -19,7 +19,7 @@
       .card {
         background-color: white;
         border-radius: 1rem;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.397);
+        box-shadow: 0 20px 20px rgba(0, 0, 0, 0.164);
         padding: 2rem;
         max-width: 400px;
         width: 100%;
@@ -35,6 +35,9 @@
         padding: 0.6rem;
         outline: none;
         margin-bottom: 1rem;
+      }
+      input:focus {
+        outline: 1px solid rgb(0, 238, 255);
       }
       input[type="radio"] {
         display: none;
@@ -67,6 +70,9 @@
         outline: none;
         font-size: 1rem;
       }
+      .back {
+        background-color: rgb(206, 206, 206);
+      }
     </style>
   </head>
   <body>
@@ -94,7 +100,7 @@
           <label for="city">City:</label>
           <input type="text" id="city" name="city" />
           <div class="control">
-            <label class="control-btn" for="step1">Back</label>
+            <label class="control-btn back" for="step1">Back</label>
             <label class="control-btn" for="step3">Next</label>
           </div>
         </div>
@@ -102,7 +108,7 @@
           <h1>Confirm</h1>
           <div>Please confirm your details before submitting.</div>
           <div class="control">
-            <label class="control-btn" for="step2">Back</label>
+            <label class="control-btn back" for="step2">Back</label>
             <button class="control-btn">Submit</button>
           </div>
         </div>
