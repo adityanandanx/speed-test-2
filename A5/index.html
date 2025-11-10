@@ -18,14 +18,16 @@
       }
       .card {
         background-color: white;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
         border-radius: 1rem;
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.397);
         padding: 2rem;
         max-width: 400px;
         width: 100%;
+      }
+      .step-content {
+        display: none;
+        flex-direction: column;
+        gap: 0.5rem;
       }
       input {
         border: 1px solid rgba(0, 0, 0, 0.479);
@@ -34,17 +36,77 @@
         outline: none;
         margin-bottom: 1rem;
       }
+      input[type="radio"] {
+        display: none;
+      }
+      input#step1:checked ~ .step1,
+      input#step2:checked ~ .step2,
+      input#step3:checked ~ .step3 {
+        display: flex;
+        animation: enter 400ms ease;
+      }
+      @keyframes enter {
+        from {
+          transform: translateX(-50px);
+          opacity: 0;
+        }
+      }
+      .control {
+        display: flex;
+        justify-content: space-between;
+      }
+      .control-btn {
+        cursor: pointer;
+        background-color: hsl(182, 80%, 65%);
+        padding: 0.5rem 1rem;
+        border-radius: 0.4rem;
+      }
+      button {
+        border: none;
+        background-color: none;
+        outline: none;
+        font-size: 1rem;
+      }
     </style>
   </head>
   <body>
     <div class="container">
-      <div class="card">
-        <h1>Personal Information</h1>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" />
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email" />
-      </div>
+      <form class="card">
+        <input type="radio" checked name="step" id="step1" />
+        <input type="radio" name="step" id="step2" />
+        <input type="radio" name="step" id="step3" />
+
+        <div class="step-content step1">
+          <h1>Personal Information</h1>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" />
+          <label for="email">Email:</label>
+          <input type="text" id="email" name="email" />
+          <div class="control">
+            <div aria-hidden="true"></div>
+            <label class="control-btn" for="step2">Next</label>
+          </div>
+        </div>
+        <div class="step-content step2">
+          <h1>Address</h1>
+          <label for="street">Street:</label>
+          <input type="text" id="street" name="street" />
+          <label for="city">City:</label>
+          <input type="text" id="city" name="city" />
+          <div class="control">
+            <label class="control-btn" for="step1">Back</label>
+            <label class="control-btn" for="step3">Next</label>
+          </div>
+        </div>
+        <div class="step-content step3">
+          <h1>Confirm</h1>
+          <div>Please confirm your details before submitting.</div>
+          <div class="control">
+            <label class="control-btn" for="step2">Back</label>
+            <button class="control-btn">Submit</button>
+          </div>
+        </div>
+      </form>
     </div>
   </body>
 </html>
